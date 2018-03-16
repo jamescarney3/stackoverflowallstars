@@ -32,6 +32,8 @@ twitter = Twython(APP_TOKEN, APP_TOKEN_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 # ---- PICK A SCREENSHOT AND TWEET IT ----
 queue_objects = s3.list_objects(Bucket=bucket_id, Prefix=queue_prefix).get('Contents')
 queue_img_keys = sorted([obj['Key'] for obj in queue_objects if obj['Key'] != queue_prefix])
+call('rm -rf /tmp/*', shell=True) # clear out tmp directory just in case
+
 
 if len(queue_img_keys):
     img_key = queue_img_keys[0]
