@@ -46,7 +46,7 @@ if len(queue_img_keys):
         s3.upload_file(local_file_name, bucket_id, 'archive/{}'.format(os.path.basename(img_key)))
         s3.delete_object(Bucket=bucket_id, Key=img_key)
     except:
-        print('something went wrong')
+        print('something went wrong ༼ ༎ຶ ෴ ༎ຶ༽')
 
 else:
     archive_img_keys = sorted([obj['Key'] for obj in archive_objects if obj['Key'] != archive_prefix])
